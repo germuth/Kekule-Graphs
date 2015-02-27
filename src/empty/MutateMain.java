@@ -39,8 +39,8 @@ import com.sun.org.apache.xml.internal.serializer.utils.Utils;
  * This class represents the JFrame which contains the entire 
  * graphical user interface. Was made using an eclipse attachment.
  * 
+ * TODO broken horribly
  * @author Aaron
- *
  */
 public class MutateMain extends JFrame{
 	private JPanel contentPane;
@@ -253,7 +253,7 @@ public class MutateMain extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Graph g = MutateMain.this.currentGraphs.get(MutateMain.this.index);
-				g.tryToFixCycleSize();
+//				g.tryToFixCycleSize();
 				String smiles = GraphToSMILES.convertSMILES(g);
 				MutateMain.this.currentSMILES.set(MutateMain.this.index, smiles);
 				MutateMain.this.SMILES.setText(smiles);
@@ -268,16 +268,16 @@ public class MutateMain extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Graph g = MutateMain.this.currentGraphs.get(MutateMain.this.index);
-				Graph g2 = g.expandNode();
-				if( g2 != null){
-					MutateMain.this.currentGraphs.set(MutateMain.this.index, g2);
-					String smiles = GraphToSMILES.convertSMILES(g2);
-					MutateMain.this.currentSMILES.set(MutateMain.this.index, smiles);
-					MutateMain.this.SMILES.setText(smiles);
-				
-					MutateMain.this.structureDisplayer.setGraph(smiles);
-					MutateMain.this.structureDisplayer.drawCurrentSMILES();
-				}
+//				Graph g2 = g.expandNode();
+//				if( g2 != null){
+//					MutateMain.this.currentGraphs.set(MutateMain.this.index, g2);
+//					String smiles = GraphToSMILES.convertSMILES(g2);
+//					MutateMain.this.currentSMILES.set(MutateMain.this.index, smiles);
+//					MutateMain.this.SMILES.setText(smiles);
+//				
+//					MutateMain.this.structureDisplayer.setGraph(smiles);
+//					MutateMain.this.structureDisplayer.drawCurrentSMILES();
+//				}
 			}
 		});
 		rightBorder.add(expandNode);
@@ -287,16 +287,16 @@ public class MutateMain extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Graph g = MutateMain.this.currentGraphs.get(MutateMain.this.index);
-				Graph g2 = g.mergeNode();
-				if( g2 != null){
-					MutateMain.this.currentGraphs.set(MutateMain.this.index, g2);
-					String smiles = GraphToSMILES.convertSMILES(g2);
-					MutateMain.this.currentSMILES.set(MutateMain.this.index, smiles);
-					MutateMain.this.SMILES.setText(smiles);
-				
-					MutateMain.this.structureDisplayer.setGraph(smiles);
-					MutateMain.this.structureDisplayer.drawCurrentSMILES();
-				}
+//				Graph g2 = g.mergeNode();
+//				if( g2 != null){
+//					MutateMain.this.currentGraphs.set(MutateMain.this.index, g2);
+//					String smiles = GraphToSMILES.convertSMILES(g2);
+//					MutateMain.this.currentSMILES.set(MutateMain.this.index, smiles);
+//					MutateMain.this.SMILES.setText(smiles);
+//				
+//					MutateMain.this.structureDisplayer.setGraph(smiles);
+//					MutateMain.this.structureDisplayer.drawCurrentSMILES();
+//				}
 			}
 		});
 		rightBorder.add(condenseNode);
@@ -306,7 +306,7 @@ public class MutateMain extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Graph g = MutateMain.this.currentGraphs.get(MutateMain.this.index);
-				if(g.tryToConnect()){
+				if(g.tryToPortConnect()){
 					MutateMain.this.currentGraphs.set(MutateMain.this.index, g);
 					String smiles = GraphToSMILES.convertSMILES(g);
 					MutateMain.this.currentSMILES.set(MutateMain.this.index, smiles);

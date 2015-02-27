@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
 
+//look for all uses of merge node and fix them becuase it actually returns a value
 public class Main {
 	private static Scanner input;
 	public static void main(String[] args) {
@@ -50,10 +51,36 @@ public class Main {
 				break;
 			case 9: 
 				System.exit(0);
+			case 10:
+				test();
+				break;
 			default:
 				System.out.println("Number not Understood. Try Again");
 			}
 			
+		}
+	}
+	
+	private static void test(){
+//		ArrayList<ArrayList<Graph>> graphs = TemplateMolecules.findGraphForAllCells(getClassification(6), 6);
+		for(int i = 0; i < 100; i++){
+			Graph original = Randomly.createRandomGraph(6);
+			
+			if(original.isPortConnected()){
+				Graph test = new Graph(original);
+				test.removeExtraNodes();
+				
+				ArrayList<Graph> toView = new ArrayList<Graph>();
+				toView.add(original);
+				toView.add(test);
+				
+				if(original.getNumNodes() != test.getNumNodes()){
+					original.writeGraph();
+					test.writeGraph();
+					MutateMain.showGraphs(toView);				
+				}
+					
+			}
 		}
 	}
 	

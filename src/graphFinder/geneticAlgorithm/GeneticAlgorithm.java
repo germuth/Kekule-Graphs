@@ -6,6 +6,7 @@ import java.util.Random;
 import empty.Cell;
 import empty.Graph;
 import empty.GraphtoCell;
+import empty.MutateMain;
 import graphFinder.GraphFinder;
 import graphFinder.Randomly;
 
@@ -24,6 +25,18 @@ public class GeneticAlgorithm implements GraphFinder{
 			ArrayList<Evolvable> toBeEvolved = new ArrayList<Evolvable>();
 			for(int j = 0; j < GAParameters.getPopulationSize(); j++){
 				EvolvableGraph eG = new EvolvableGraph(Randomly.createRandomGraph(cell.getNumPorts()));
+				
+				Cell gsCell = GraphtoCell.makeCell(eG.graph);
+				// cell may be empty if there is a secluded port
+				if (gsCell.size() != 0) {
+					gsCell.normalize();
+					gsCell.sortBySize();
+				}
+				int index = classification.indexOf(gsCell);
+//				if(index == 4 && i == 4){
+//					System.out.println("BLEAK POINT");
+//				}
+				
 				eG.calculateFitness(cell);
 				toBeEvolved.add(eG);
 			}
@@ -38,27 +51,33 @@ public class GeneticAlgorithm implements GraphFinder{
 			//TODO
 			//make sure my genetic algorithm isn't bad
 			for(Graph g: graphs){
-			// test what cell this graph is
+				// test what cell this graph is
 				Cell gsCell = GraphtoCell.makeCell(g);
 				if (gsCell.size() != 0) {
 					gsCell.normalize();
 					gsCell.sortBySize();
 					if (gsCell.equals(cell)) {
-						g.tryToFixCycleSize();
-						g.tryToConnect();
- 						for(int k = 0; k < 3; k++){
-							g.mergeNode();
-							g.tryToFixCycleSize();
-						}
-						if (g.tryToConnect() && g.isRealistic()) {
+						if(g.tryToEditForRealisticness()){
 							graphsForEachCell.get(i).add(g);
 						}else{
-							System.out.println("GRAPH WAS BAD");
+							System.out.println("GRAPH WAS UNFIXABLE");
+//							boolean y = g.isFixable();
+//							boolean x = g.isRealistic();
+//							ArrayList<Graph> gss = new ArrayList<Graph>();
+//							gss.add(g);
+//							MutateMain.showGraphs(gss);
+//							x = x || false;
 						}
 					}else{
 						System.out.println("SOMETHING WRONG WITH GENETIC ALGORITHM");
 					}
 				}
+			}
+			if(graphsForEachCell.get(i).isEmpty()){
+				System.out.println((i+1) + ": None found");
+				System.out.println("WASTED");
+			}else{
+				System.out.println((i+1) + ": " + graphsForEachCell.get(i).size() + " found");
 			}
 		}
 		
@@ -68,40 +87,42 @@ public class GeneticAlgorithm implements GraphFinder{
 	public static ArrayList<Evolvable> run(Cell cell, Population population){
 		int maxFitness = cell.size();
 
-		long startTime = System.currentTimeMillis();
-		geneticAlgorithm(population, cell, maxFitness);
+//		long startTime = System.currentTimeMillis();
+		population = geneticAlgorithm(population, cell, maxFitness);
 		
-		population.printAverage();
-		if( population.getBestLength( maxFitness) < 1){
-			System.out.println("No Graphs Found.");
-		}
+//		population.printAverage();
+//		if( population.getBestLength( maxFitness) < 1){
+//			System.out.println("No Graphs Found.");
+//		}else{
+//			System.out.println("Graphs Found");
+//		}
 		
-		long duration = System.currentTimeMillis() - startTime;
-		System.out.println("Time Taken: " + (double)duration/1000.0 + " seconds.");
+//		long duration = System.currentTimeMillis() - startTime;
+//		System.out.println("Time Taken: " + (double)duration/1000.0 + " seconds.");
 		
 		return population.getBest(maxFitness);
 	}
 
 	/**
-	 * Runs the genetic algorithm. A population of graphs is evolved towards the required
-	 * cell. Numbers in comments below are simply default values, and the actual values currently
-	 * used are the static variables of this class. 
-	 * TODO However, once the graphical interface is working properly, all values will come from there.
+	 * Runs the genetic algorithm. A population of graphs is evolved towards the required cell. 
 	 */
-	private static void geneticAlgorithm(Population population, Cell target, int maxFitness){
+	private static Population geneticAlgorithm(Population population, Cell target, int maxFitness){
 		
 		ArrayList<Evolvable> nextGen = null;
 		for(int i = 0; i < GAParameters.getIterations() ; i++){
+			population.prune(maxFitness);
+			
 			//if we've found enough graphs, quit
 			if( population.getBestLength(maxFitness) >= GAParameters.getMinimumGraphsRequired() ){
 				break;
 			}
 			
 			//print out progress report every 10 percent
-			double progress = (double)i/(double)GAParameters.getIterations();
+//			double progress = (double)i/(double)GAParameters.getIterations();
 //			if((progress*100) % 5 == 0){
-//				System.out.println(progress);
-//			}
+			if(i % 5 == 0 && i != 0){
+				System.out.println((i + 1));
+			}
 			
 			//grab 100 graphs for the next iteration
 			//90 are elite
@@ -143,5 +164,6 @@ public class GeneticAlgorithm implements GraphFinder{
 			
 			population = new Population( nextGen );
 		}
+		return population;
 	}
 }

@@ -9,6 +9,7 @@ import java.util.TreeSet;
 
 import empty.Cell;
 import empty.Graph;
+import empty.MutateMain;
 import empty.Utils;
 
 public class Modification implements GraphFinder{
@@ -22,15 +23,13 @@ public class Modification implements GraphFinder{
 		ArrayList<Graph> hesselinkGraphs = getRank6Graphs();
 		for(int i = 0; i < hesselinkGraphs.size(); i++){
 			Graph g = hesselinkGraphs.get(i);
-			//try to fix the graph
-			g.tryToConnect();
-			for(int k = 0; k < 10; k++){
-				g.mergeNode();
-				g.tryToFixCycleSize();
-			}
-			
-			if(g.isRealistic()){
+			ArrayList<Graph> test = new ArrayList<Graph>();
+			test.add(new Graph(g));
+			if(g.tryToEditForRealisticness()){
 				g.setName("K" + (i+1) + "-" + "H-edited");
+				test.add(g);
+				
+				MutateMain.showGraphs(test);
 				graphsForEachCell.get(i).add(g);
 			}
 		}

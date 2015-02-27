@@ -87,8 +87,7 @@ public class Randomly implements GraphFinder {
 				gsCell.normalize();
 				gsCell.sortBySize();
 				if (gsCell.equals(cell)) {
-					newbie.tryToFixCycleSize();
-					if (newbie.tryToConnect() && newbie.isRealistic()) {
+					if( newbie.tryToEditForRealisticness()){
 						graphs.add(newbie);
 					}
 				}
@@ -130,8 +129,7 @@ public class Randomly implements GraphFinder {
 				// found matching cell
 				if (index != -1) {
 					newbie.setName("K" + (index + 1) + "-" + (graphs.get(index).size() + 1));
-					newbie.tryToFixCycleSize();
-					if (newbie.tryToConnect() && newbie.isRealistic()) {
+					if(newbie.tryToEditForRealisticness()){
 						graphs.get(index).add(newbie);
 					}
 				}

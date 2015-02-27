@@ -52,14 +52,14 @@ public class Population {
 	 * 50th EvolvableGraph ( top 10% in population of 500)
 	 */
 	public void printAverage(){
-//		int sum = 0;
-//		for(int i = 0; i < this.size(); i++){
-//			sum += this.population.get(i).getFitness();
-//		}
-//		System.out.println("Best: " + this.population.get(0).getFitness() );
-//		System.out.println("Average: " + (sum / this.size()));
-//		System.out.println("Worst: " + this.population.get( this.size()-1 ).getFitness() );
-//		System.out.println("50th " + this.population.get( 50).getFitness() );
+		int sum = 0;
+		for(int i = 0; i < this.size(); i++){
+			sum += this.population.get(i).getFitness();
+		}
+		System.out.println("Best: " + this.population.get(0).getFitness() );
+		System.out.println("Average: " + (sum / this.size()));
+		System.out.println("Worst: " + this.population.get( this.size()-1 ).getFitness() );
+		System.out.println("50th " + this.population.get( 50).getFitness() );
 	}
 	
 	public int getBestLength(int fitness){
@@ -70,12 +70,40 @@ public class Population {
 			for(int i = 0; i < this.population.size(); i++){
 				if( this.population.get(i).getFitness() == fitness){
 					count++;
+//					
+//					//TODO
+//					EvolvableGraph gg = (EvolvableGraph)this.population.get(i);
+//					
+//					boolean y = gg.graph.isFixable();
+//					if(!y){
+//						System.out.println("SHOULDN'T BE POSSIBLE");
+//					}
+//					y = y || false;
 				} else{
 					break;
 				}
 			}
 			return count;
 		}
+	}
+	
+	public void prune(int maxFitness){
+		for(int i = 0; i < this.population.size(); i++){
+			Evolvable g = this.population.get(i);
+			if(g.getFitness() == maxFitness){
+//				//TODO should use evolvable interface
+				EvolvableGraph gg = (EvolvableGraph) g;
+				if(!gg.graph.tryToEditForRealisticness()){
+					g.setFitness(g.getFitness() - 1.0);
+				}
+//				if(!gg.graph.isFixable()){
+//					//TODO 0.5 or 1.0?
+//					g.setFitness(g.getFitness() - 1.0);
+			}else{
+				break;
+			}
+		}
+		Collections.sort(this.population);
 	}
 	
 	/**

@@ -9,9 +9,11 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Set;
 
+import empty.BitVector;
 import empty.Cell;
 import empty.Graph;
 import empty.GraphtoCell;
+import empty.MutateMain;
 import empty.PowerSet;
 import empty.Utils;
 
@@ -35,7 +37,7 @@ public class TemplateMolecules implements GraphFinder {
 			while (fScanner.hasNext()) {
 				// try to find graphs
 				ArrayList<Graph> graphs = next.getAllGraphs(rank);
-
+				
 				// test each graph for its cell
 				for (Graph curr : graphs) {
 					// test what cell this graph is
