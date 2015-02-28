@@ -58,9 +58,10 @@ public class GeneticAlgorithm implements GraphFinder{
 					gsCell.sortBySize();
 					if (gsCell.equals(cell)) {
 						if(g.tryToEditForRealisticness()){
+							g.setName("K" + (i+1) + "-" + graphsForEachCell.get(i).size());
 							graphsForEachCell.get(i).add(g);
 						}else{
-							System.out.println("GRAPH WAS UNFIXABLE");
+//							System.out.println("GRAPH WAS UNFIXABLE");
 //							boolean y = g.isFixable();
 //							boolean x = g.isRealistic();
 //							ArrayList<Graph> gss = new ArrayList<Graph>();
@@ -75,7 +76,7 @@ public class GeneticAlgorithm implements GraphFinder{
 			}
 			if(graphsForEachCell.get(i).isEmpty()){
 				System.out.println((i+1) + ": None found");
-				System.out.println("WASTED");
+//				System.out.println("WASTED");
 			}else{
 				System.out.println((i+1) + ": " + graphsForEachCell.get(i).size() + " found");
 			}
@@ -120,13 +121,11 @@ public class GeneticAlgorithm implements GraphFinder{
 			//print out progress report every 10 percent
 //			double progress = (double)i/(double)GAParameters.getIterations();
 //			if((progress*100) % 5 == 0){
-			if(i % 5 == 0 && i != 0){
+			if(i != 0) { //if(i % 5 == 0 && i != 0){
 				System.out.println((i + 1));
 			}
 			
-			//grab 100 graphs for the next iteration
-			//90 are elite
-			//10 are random for genetic diversity
+			//grab some elite and some random (to preserve diversity)
 			nextGen = population.getNextGeneration();
 			
 			//mutate 200 random Graphs and add to nextGen
@@ -157,6 +156,9 @@ public class GeneticAlgorithm implements GraphFinder{
 			nextGen.addAll(mutants);
 			
 			// fitness function on every graph
+//			if(i != 0){
+//				System.out.println("calc fitness");
+//			}
 			for (int j = 0; j < nextGen.size(); j++) {
 				Evolvable current = nextGen.get(j);
 				current.calculateFitness(target);

@@ -70,15 +70,6 @@ public class Population {
 			for(int i = 0; i < this.population.size(); i++){
 				if( this.population.get(i).getFitness() == fitness){
 					count++;
-//					
-//					//TODO
-//					EvolvableGraph gg = (EvolvableGraph)this.population.get(i);
-//					
-//					boolean y = gg.graph.isFixable();
-//					if(!y){
-//						System.out.println("SHOULDN'T BE POSSIBLE");
-//					}
-//					y = y || false;
 				} else{
 					break;
 				}
@@ -96,9 +87,6 @@ public class Population {
 				if(!gg.graph.tryToEditForRealisticness()){
 					g.setFitness(g.getFitness() - 1.0);
 				}
-//				if(!gg.graph.isFixable()){
-//					//TODO 0.5 or 1.0?
-//					g.setFitness(g.getFitness() - 1.0);
 			}else{
 				break;
 			}

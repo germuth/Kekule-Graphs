@@ -205,8 +205,14 @@ public class EvolvableGraph implements Evolvable {
 
 		// must set number of nodes at end of method, for now it's set to max of both parents
 		// fitness assigned to zero in constructor
-		Graph child = new Graph("C(" + this.graph.getName() + ")(" + otherParent.graph.getName()
-				+ ")", rank, 0, childCell);
+//		Graph child = new Graph("C(" + this.graph.getName() + ")(" + otherParent.graph.getName()
+//				+ ")", rank, 0, childCell);
+		Graph child = new Graph("G", rank, 0, childCell);
+		
+		if(child.getName().length() > 1000){
+			System.out.println(child.getName());
+		}
+		
 		child.setNumNodes(Math.max(this.graph.getNumNodes(), otherParent.graph.getNumNodes()));
 
 		// iterate through both edges

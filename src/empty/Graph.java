@@ -228,7 +228,8 @@ public class Graph {
 	 * removing two nodes, without affecting the graph's cell
 	 */
 	public boolean tryToFixCycleSize(ArrayList<ArrayList<BitVector>> allCycles) {
-		for(ArrayList<BitVector> cycle: allCycles){
+		for(int i = 0; i < allCycles.size(); i++){
+			ArrayList<BitVector> cycle = allCycles.get(i);
 			if(cycle.size() < 5){
 				if(!widenCycle(cycle, allCycles)){
 					return false;
@@ -238,6 +239,7 @@ public class Graph {
 				if(!shortenCycle(cycle, allCycles)){
 					return false;
 				}
+				i--; //cycle require multiple shortenings
 			}
 		}
 		return true;

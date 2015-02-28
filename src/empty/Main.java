@@ -182,10 +182,15 @@ public class Main {
 					}
 				});
 				
-				Graph best = current.get(0);
-				best.getEdgeCell().sortBySize();
-				best.getEdgeCell().removeDuplicates();
-				theGraphs.add(best);
+				for(Graph g: current){
+					g.getEdgeCell().sortBySize();
+					g.getEdgeCell().removeDuplicates();
+					theGraphs.add(g);
+				}
+//				Graph best = current.get(0);
+//				best.getEdgeCell().sortBySize();
+//				best.getEdgeCell().removeDuplicates();
+//				theGraphs.add(best);
 			}
 		}
 		return theGraphs;
