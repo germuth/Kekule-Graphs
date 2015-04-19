@@ -46,7 +46,6 @@ import org.openscience.cdk.smiles.SmilesParser;
  * This class takes a SMILES representation of a molecule and 
  * displays it to the user. THe Open Source Chemistry Development
  * Kit finds the actual atom coordinates. 
- * @author Aaron
  */
 public class StructureDisplayer extends JComponent{
 	/**

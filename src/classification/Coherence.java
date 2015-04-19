@@ -13,9 +13,6 @@ import empty.Cell;
  * This class holds many utility functions involved with Cell coherence and
  * Channels. It also holds a static variable, chFrom which holds 
  * some discovered channels so they don't have to be recalculated.
- * 
- * @author Aaron
- *
  */
 
 public class Coherence {

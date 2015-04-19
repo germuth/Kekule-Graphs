@@ -9,7 +9,7 @@ import empty.Graph;
 import empty.GraphtoCell;
 
 
-public class Randomly implements GraphFinder {
+public class Randomly {
 	public static Random rng = new Random();
 
 	/**

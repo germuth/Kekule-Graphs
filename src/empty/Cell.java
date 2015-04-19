@@ -28,9 +28,6 @@ import classification.Coherence;
  * 
  * A Kekule cell is visualized as follows
  * {0, ab, ac, abcd, abcde}
- * 
- * @author Aaron
- *
  */
 public class Cell {
 	//STATIC

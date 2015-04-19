@@ -3,9 +3,6 @@ package empty;
 /**
  * Histogram 
  * 
- * Don't understand fully yet
- * @author Aaron
- *
  */
 public class Histogram {
 	public static int rank;

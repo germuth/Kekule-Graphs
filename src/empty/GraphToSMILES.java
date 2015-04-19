@@ -14,9 +14,6 @@ import java.util.List;
  * edge with a following number to remember they are connected. 
  * 
  * Now we can DFS through the spanning tree and just write out the nodes and we reach them.
- * 
- * @author Aaron
- *
  */
 public class GraphToSMILES {
 	

@@ -11,8 +11,6 @@ import java.util.Set;
  * Permutations 
  * 
  * Don't understand fully yet
- * @author Aaron
- *
  */
 public class Permutations {
 	/**

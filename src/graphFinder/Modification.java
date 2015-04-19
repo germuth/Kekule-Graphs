@@ -12,7 +12,7 @@ import empty.Graph;
 import empty.MutateMain;
 import empty.Utils;
 
-public class Modification implements GraphFinder{
+public class Modification{
 	
 	public static ArrayList<ArrayList<Graph>> findGraphForAllCells(ArrayList<Cell> classification) {
 	

@@ -12,8 +12,6 @@ package empty;
  * 
  * This subset contains objects 1, 3, and 4. This is used to represent edges 
  * (a bitvector with only two occurences), set of nodes (as above), and others.
- * @author Aaron
- *
  */
 public class BitVector implements Comparable<BitVector>{
 	

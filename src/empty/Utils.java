@@ -10,8 +10,6 @@ import java.util.Set;
  * Utils
  * 
  * Utility class used to hold helper functions for the rest of the program
- * @author Aaron
- *
  */
 public class Utils {
 	public static ArrayList<BitVector> removeDups(ArrayList<BitVector> list){

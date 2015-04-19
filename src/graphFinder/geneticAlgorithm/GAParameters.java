@@ -9,7 +9,6 @@ package graphFinder.geneticAlgorithm;
  * (parameter panels) in the menu bar.
  * 
  * If the setter methods aren't used, standard defaults are assigned here
- * @author Aaron
  */
 public class GAParameters {
 	/**

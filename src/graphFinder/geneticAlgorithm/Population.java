@@ -16,8 +16,6 @@ import empty.Utils;
  * 
  * A Population is list of graph used for the genetic algorithm. The list
  * is sorted by fitness so that the most fit graphs are at the begning of the list.
- * 
- * @author Aaron
  *
  */
 public class Population {

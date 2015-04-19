@@ -19,9 +19,6 @@ import java.util.Set;
  * Graphs are read in from graphs.txt in the following format:
  * 
  * Graph name #nodes #ports the set of ports edges extra edges (if necessary)
- * 
- * @author Aaron
- * 
  */
 public class GraphtoCell {
 	/**

@@ -7,10 +7,9 @@ import empty.Cell;
 import empty.Graph;
 import empty.GraphtoCell;
 import empty.MutateMain;
-import graphFinder.GraphFinder;
 import graphFinder.Randomly;
 
-public class GeneticAlgorithm implements GraphFinder{
+public class GeneticAlgorithm {
 	private static Random rng = new Random();
 	
 	public static ArrayList<ArrayList<Graph>> findGraphForAllCells(ArrayList<Cell> classification) {

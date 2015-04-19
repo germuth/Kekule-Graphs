@@ -23,9 +23,6 @@ import java.util.Set;
  * the BitVector for a set of 32 size would overflow the integer. cP <= cN <= 32 Above is CORRECT
  * 
  * TODO this classed could be re-worked to conform with the rest of the program better
- * 
- * @author Aaron
- *
  */
 public class Graph {
 	private String name;

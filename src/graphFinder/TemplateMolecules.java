@@ -17,7 +17,7 @@ import empty.MutateMain;
 import empty.PowerSet;
 import empty.Utils;
 
-public class TemplateMolecules implements GraphFinder {
+public class TemplateMolecules {
 
 	public static ArrayList<ArrayList<Graph>> findGraphForAllCells(ArrayList<Cell> classification, int rank) {
 		ArrayList<ArrayList<Graph>> graphsForEachCell = new ArrayList<ArrayList<Graph>>();
@@ -213,9 +213,6 @@ public class TemplateMolecules implements GraphFinder {
  * resulting graph and therefore cell.
  * 
  * This is a useful technique for finding realistic graphs for many cells.
- * 
- * @author Aaron
- *
  */
 class TemplateMolecule {
 

@@ -40,7 +40,6 @@ import com.sun.org.apache.xml.internal.serializer.utils.Utils;
  * graphical user interface. Was made using an eclipse attachment.
  * 
  * TODO broken horribly
- * @author Aaron
  */
 public class MutateMain extends JFrame{
 	private JPanel contentPane;
@@ -88,7 +87,7 @@ public class MutateMain extends JFrame{
 	 */
 	private String cell;
 	
-	public static void showGraphs(ArrayList<Graph> graphs) {
+	public static void showGraphs(final ArrayList<Graph> graphs) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

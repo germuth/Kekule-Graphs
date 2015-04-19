@@ -12,7 +12,15 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-
+/*
+ * 
+ Resulting graphs are converted to SMILES (first introduced here \cite{SMILES} in order to be visualized. 
+ The ports are labeled by atoms with a P (normally reserved for a phosphorous atom). 
+ We need not label each port individually since Kekul\'e cells are invariant across port renaming \cite{H13}. 
+ The open source Chemistry Development Kit \cite{CDK} is used to parse the SMILES and generate a two-dimensional structure. 
+ Other than the ports, the structure resembles the hydrogen-suppressed carbon skeleton of the molecule.  
+ 
+ */
 //look for all uses of merge node and fix them becuase it actually returns a value
 public class Main {
 	private static Scanner input;
@@ -25,18 +33,18 @@ public class Main {
 			answer = input.nextInt();
 			input.nextLine();
 			switch (answer) {
-			case 1:
-				findByRandom();
-				break;
-			case 2: 
-				findByTemplate();
-				break;
-			case 3:
-				findByModification();
-				break;
-			case 4: 
-				findByGeneticAlg();
-				break;
+//			case 1:
+//				findByRandom();
+//				break;
+//			case 2: 
+//				findByTemplate();
+//				break;
+//			case 3:
+//				findByModification();
+//				break;
+//			case 4: 
+//				findByGeneticAlg();
+//				break;
 			case 5:
 				findAllByRandom();
 				break;
@@ -109,24 +117,24 @@ public class Main {
 		showResults(graphs);
 	}
 
-	private static void findByGeneticAlg() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void findByModification() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void findByTemplate() {
-				
-	}
-
-	private static void findByRandom() {
-		// TODO Auto-generated method stub
-		
-	}
+//	private static void findByGeneticAlg() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	private static void findByModification() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	private static void findByTemplate() {
+//				
+//	}
+//
+//	private static void findByRandom() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 	
 	private static void showResults(ArrayList<ArrayList<Graph>> graphsForEachCell){
 
@@ -257,10 +265,11 @@ public class Main {
 	private static void printMenu(){
 		System.out.println("Finding Stable Graphs for Kekule Cells:");
 		
-		System.out.println("1. Find a Graph for a Cell - Randomly");
-		System.out.println("2. Find a Graph for a Cell - Template Molecules");
-		System.out.println("3. Find a Graph for a Cell - Modification");
-		System.out.println("4. Find a Graph for a Cell - Genetic Algorithm");
+		//TODO re add?
+//		System.out.println("1. Find a Graph for a Cell - Randomly");
+//		System.out.println("2. Find a Graph for a Cell - Template Molecules");
+//		System.out.println("3. Find a Graph for a Cell - Modification");
+//		System.out.println("4. Find a Graph for a Cell - Genetic Algorithm");
 		
 		System.out.println("5. Find Graphs for all Cells in a Rank- Randomly");
 		System.out.println("6. Find Graphs for all Cells in a Rank - Template Molecules");
