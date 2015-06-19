@@ -1,9 +1,14 @@
-package empty;
+package display;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+
+import shared.BitVector;
+import shared.Cell;
+import shared.Graph;
+import shared.Utils;
 
 /**
  * This class is used to convert a graph into the Simplified Molecular

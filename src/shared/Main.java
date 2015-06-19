@@ -1,4 +1,4 @@
-package empty;
+package shared;
 import graphFinder.Modification;
 import graphFinder.Randomly;
 import graphFinder.TemplateMolecules;
@@ -12,16 +12,10 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
-/*
- * 
- Resulting graphs are converted to SMILES (first introduced here \cite{SMILES} in order to be visualized. 
- The ports are labeled by atoms with a P (normally reserved for a phosphorous atom). 
- We need not label each port individually since Kekul\'e cells are invariant across port renaming \cite{H13}. 
- The open source Chemistry Development Kit \cite{CDK} is used to parse the SMILES and generate a two-dimensional structure. 
- Other than the ports, the structure resembles the hydrogen-suppressed carbon skeleton of the molecule.  
- 
- */
-//look for all uses of merge node and fix them becuase it actually returns a value
+
+import display.MutateMain;
+
+//look for all uses of merge node and fix them because it actually returns a value
 public class Main {
 	private static Scanner input;
 	public static void main(String[] args) {

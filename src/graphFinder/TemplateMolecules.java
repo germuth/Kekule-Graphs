@@ -9,13 +9,13 @@ import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Set;
 
-import empty.BitVector;
-import empty.Cell;
-import empty.Graph;
-import empty.GraphtoCell;
-import empty.MutateMain;
-import empty.PowerSet;
-import empty.Utils;
+import display.MutateMain;
+import shared.BitVector;
+import shared.Cell;
+import shared.Graph;
+import shared.GraphtoCell;
+import shared.PowerSet;
+import shared.Utils;
 
 public class TemplateMolecules {
 

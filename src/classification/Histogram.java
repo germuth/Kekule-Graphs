@@ -1,4 +1,8 @@
-package empty;
+package classification;
+
+import shared.BitVector;
+import shared.Cell;
+import shared.Permutations;
 
 /**
  * Histogram 

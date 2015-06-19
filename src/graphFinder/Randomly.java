@@ -3,10 +3,10 @@ package graphFinder;
 import java.util.ArrayList;
 import java.util.Random;
 
-import empty.BitVector;
-import empty.Cell;
-import empty.Graph;
-import empty.GraphtoCell;
+import shared.BitVector;
+import shared.Cell;
+import shared.Graph;
+import shared.GraphtoCell;
 
 
 public class Randomly {

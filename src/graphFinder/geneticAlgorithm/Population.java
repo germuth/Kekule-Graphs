@@ -5,11 +5,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
-import empty.Cell;
-import empty.Graph;
-import empty.GraphToSMILES;
-import empty.GraphtoCell;
-import empty.Utils;
+import shared.Cell;
+import shared.Graph;
+import shared.GraphtoCell;
+import shared.Utils;
+import display.GraphToSMILES;
 
 /**
  * Population

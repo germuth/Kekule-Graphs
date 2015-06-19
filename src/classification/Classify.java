@@ -6,11 +6,10 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
-import empty.BitVector;
-import empty.Cell;
-import empty.Histogram;
-import empty.Permutations;
-import empty.Utils;
+import shared.BitVector;
+import shared.Cell;
+import shared.Permutations;
+import shared.Utils;
 /**
  * Classify
  * 

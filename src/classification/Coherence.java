@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import empty.BitVector;
-import empty.Cell;
+import shared.BitVector;
+import shared.Cell;
 
 /**
  * Coherence

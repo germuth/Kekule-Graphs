@@ -1,6 +1,6 @@
 package graphFinder.geneticAlgorithm;
 
-import empty.Cell;
+import shared.Cell;
 
 public interface Evolvable extends Comparable<Evolvable>{
 	public double getFitness();

@@ -7,10 +7,10 @@ import java.util.Scanner;
 import java.util.Set;
 import java.util.TreeSet;
 
-import empty.Cell;
-import empty.Graph;
-import empty.MutateMain;
-import empty.Utils;
+import display.MutateMain;
+import shared.Cell;
+import shared.Graph;
+import shared.Utils;
 
 public class Modification{
 	

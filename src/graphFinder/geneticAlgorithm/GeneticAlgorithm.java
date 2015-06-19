@@ -3,10 +3,10 @@ package graphFinder.geneticAlgorithm;
 import java.util.ArrayList;
 import java.util.Random;
 
-import empty.Cell;
-import empty.Graph;
-import empty.GraphtoCell;
-import empty.MutateMain;
+import display.MutateMain;
+import shared.Cell;
+import shared.Graph;
+import shared.GraphtoCell;
 import graphFinder.Randomly;
 
 public class GeneticAlgorithm {
@@ -31,10 +31,6 @@ public class GeneticAlgorithm {
 					gsCell.normalize();
 					gsCell.sortBySize();
 				}
-				int index = classification.indexOf(gsCell);
-//				if(index == 4 && i == 4){
-//					System.out.println("BLEAK POINT");
-//				}
 				
 				eG.calculateFitness(cell);
 				toBeEvolved.add(eG);
@@ -75,7 +71,6 @@ public class GeneticAlgorithm {
 			}
 			if(graphsForEachCell.get(i).isEmpty()){
 				System.out.println((i+1) + ": None found");
-//				System.out.println("WASTED");
 			}else{
 				System.out.println((i+1) + ": " + graphsForEachCell.get(i).size() + " found");
 			}
@@ -155,9 +150,6 @@ public class GeneticAlgorithm {
 			nextGen.addAll(mutants);
 			
 			// fitness function on every graph
-//			if(i != 0){
-//				System.out.println("calc fitness");
-//			}
 			for (int j = 0; j < nextGen.size(); j++) {
 				Evolvable current = nextGen.get(j);
 				current.calculateFitness(target);

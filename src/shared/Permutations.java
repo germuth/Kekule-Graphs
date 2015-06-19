@@ -1,4 +1,4 @@
-package empty;
+package shared;
 
 
 import java.util.ArrayList;
@@ -7,17 +7,15 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
+import classification.Histogram;
+
 /**
- * Permutations 
- * 
- * Don't understand fully yet
+ * Permutations
  */
 public class Permutations {
 	/**
 	 * Represents the max rank which is allowed. Graphs with
 	 * more than 12 ports are not valid.
-	 * maybe
-	 * i think so
 	 */
 	public static final int MAX_RANK = 11;
 	
